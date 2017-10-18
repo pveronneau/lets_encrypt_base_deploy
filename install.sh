@@ -1,7 +1,9 @@
 #!/bin/bash
 
 HOSTNAME=`hostname`
-
+echo "Copying cert deploy to /usr/bin"
+cp ./cert-deploy.sh /usr/bin/cert-deploy.sh
+chmod 755 /usr/bin/cert-deploy.sh
 curl https://get.acme.sh | sh
 acme.sh --issue --dns --renew-hook /usr/bin/cert-deploy.sh -d $HOSTNAME
 echo "Add the TXT entry above before proceding"
@@ -14,6 +16,3 @@ else
     exit 1
 fi
 acme.sh --renew -d $HOSTNAME
-echo "Copying cert deploy to /usr/bin"
-cp ./cert-deploy.sh /usr/bin/cert-deploy.sh
-chmod 755 /usr/bin/cert-deploy.sh
