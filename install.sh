@@ -38,3 +38,6 @@ cp ./cert-deploy.sh /usr/bin/cert-deploy.sh
 chmod 755 /usr/bin/cert-deploy.sh
 curl https://get.acme.sh | sh
 /root/.acme.sh/acme.sh --issue --dns dns_aws --deploy-hook /usr/bin/cert-deploy.sh --renew-hook /usr/bin/cert-deploy.sh -d $HOSTNAME
+# Save AWS credentials for future use
+echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" >> /root/.acme.sh/account.conf
+echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" >> /root/.acme.sh/account.conf
