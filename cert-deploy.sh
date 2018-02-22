@@ -7,7 +7,6 @@
 HOSTNAME=`hostname`
 CERTLOCATION="/etc/$HOSTNAME.cert"
 PKCS12LOCATION="/etc/$HOSTNAME.pfx"
-SONARRLOCATION="/home/docker-config/sonarr"
 
 ####
 # Create combined pem file
