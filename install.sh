@@ -38,4 +38,3 @@ cp ./cert-deploy.sh /usr/bin/cert-deploy.sh
 chmod 755 /usr/bin/cert-deploy.sh
 curl https://get.acme.sh | sh
 /root/.acme.sh/acme.sh --issue --dns dns_aws --deploy-hook /usr/bin/cert-deploy.sh --renew-hook /usr/bin/cert-deploy.sh -d $HOSTNAME
-/root/.acme.sh/acme.sh --renew -d $HOSTNAME
