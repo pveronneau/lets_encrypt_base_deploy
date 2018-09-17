@@ -6,18 +6,12 @@
 ####
 HOSTNAME=`hostname`
 CERTLOCATION="/etc/$HOSTNAME.cert"
-PKCS12LOCATION="/etc/$HOSTNAME.pfx"
 
 ####
 # Create combined pem file
 cat /root/.acme.sh/$HOSTNAME/$HOSTNAME.key > $CERTLOCATION && cat /root/.acme.sh/$HOSTNAME/$HOSTNAME.cer >> $CERTLOCATION
 chmod 600 $CERTLOCATION
 ####
-####
-# Create pkcs12 file
-####
-openssl pkcs12 -export -in /root/.acme.sh/$HOSTNAME/$HOSTNAME.cer -inkey /root/.acme.sh/$HOSTNAME/$HOSTNAME.key -out $PKCS12LOCATION -certfile /root/.acme.sh/$HOSTNAME/ca.cer -passout pass:
-chmod 600 $PKCS12LOCATION
 ####
 # Deploy to servies
 ####
